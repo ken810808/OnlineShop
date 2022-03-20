@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\codes\\GitHub\\OnlineShop\\OnlineShop.csproj": {}
+    "D:\\codes\\OnlineShop\\OnlineShop.csproj": {}
   },
   "projects": {
-    "D:\\codes\\GitHub\\OnlineShop\\OnlineShop.csproj": {
+    "D:\\codes\\OnlineShop\\OnlineShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\codes\\GitHub\\OnlineShop\\OnlineShop.csproj",
+        "projectUniqueName": "D:\\codes\\OnlineShop\\OnlineShop.csproj",
         "projectName": "OnlineShop",
-        "projectPath": "D:\\codes\\GitHub\\OnlineShop\\OnlineShop.csproj",
+        "projectPath": "D:\\codes\\OnlineShop\\OnlineShop.csproj",
         "packagesPath": "C:\\Users\\ken\\.nuget\\packages\\",
-        "outputPath": "D:\\codes\\GitHub\\OnlineShop\\obj\\",
+        "outputPath": "D:\\codes\\OnlineShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ken\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,64 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AspNetCore.HealthChecks.UI": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "AspNetCore.HealthChecks.UI.Client": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "AspNetCore.HealthChecks.UI.InMemory.Storage": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "AspNetCore.HealthChecks.Uris": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.3.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.Extensions.DependencyModel": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.14, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[4.14.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -63,7 +121,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
