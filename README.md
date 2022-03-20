@@ -21,8 +21,8 @@
 | NLog       | Log紀錄      |   https://nlog-project.org/   |
 | AutoFac     | 容器化DI      | https://autofac.org/  |
 | MySQL     | mysql 8.0      |  https://dev.mysql.com/downloads/ |
-| NSwag     | 接口及時文件      |  https://dev.mysql.com/downloads/ |
-| HealthChecks     | 接口及時文件      |  https://dev.mysql.com/downloads/ |
+| NSwag     | 接口及時文件      |  https://swagger.io/ |
+| HealthChecks     | 接口心跳測試      |  https://www.google.com/search?client=firefox-b-d&q=HealthChecks |
 
 
 ### 開發工具
