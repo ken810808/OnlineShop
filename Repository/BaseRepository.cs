@@ -14,6 +14,13 @@ namespace OnlineShop.Repository
         Task<bool> Any(Expression<Func<T, bool>> expression);
 
         /// <summary>
+        /// 查詢數據
+        /// </summary>
+        /// <param name="id">PK索引</param>
+        /// <returns></returns>
+        T Find(long id);
+
+        /// <summary>
         /// 查詢列表數據
         /// </summary>
         /// <param name="expression">SQL條件</param>
@@ -76,6 +83,16 @@ namespace OnlineShop.Repository
         public async Task<bool> Any(Expression<Func<T, bool>> expression)
         {
             return await _entity.AnyAsync(expression);
+        }
+
+        /// <summary>
+        /// 查詢數據
+        /// </summary>
+        /// <param name="id">PK索引</param>
+        /// <returns></returns>
+        public T Find(long id)
+        {
+            return _entity.Find(id);
         }
 
         /// <summary>

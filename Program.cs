@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Models.DB;
-using NLog;
 using NLog.Web;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -8,9 +7,10 @@ using Newtonsoft.Json;
 using System.Net.Mime;
 using HealthChecks.UI.Client;
 using Autofac.Extensions.DependencyInjection;
-using OnlineShop.Services;
 using System.Reflection;
 using Autofac;
+using OnlineShop.Hubs;
+using OnlineShop;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +34,11 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
         .Where(t => t.Name.EndsWith("Repository"))
         .AsImplementedInterfaces()
         .AutoActivate().SingleInstance();
+
+        container.RegisterAssemblyTypes(assembly)
+       .Where(t => t.Name.EndsWith("Hub"))
+       .AsImplementedInterfaces()
+       .AutoActivate().SingleInstance();
     });
 
 #endregion
@@ -55,6 +60,8 @@ builder.Services.AddSwaggerGen();
 // Register HealthChecks Service
 builder.Services.AddHealthChecksUI().AddInMemoryStorage();
 
+// Register SignalR Service
+builder.Services.AddSignalR();
 
 #region HealthChecks
 
@@ -78,8 +85,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.ConfigureExceptionHandler();
 
-#region
+#region Use HealthChecks
 
 app.UseHealthChecks("/health", new HealthCheckOptions()
 {
@@ -111,12 +119,19 @@ app.UseHealthChecksUI(options => { options.UIPath = "/hc-ui"; });
 
 #endregion
 
+#region Use SignalR
+
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ProductHub>("/hub");
+});
+
+#endregion
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
-
-//app.AutoFacDI();
-
 app.Run();

@@ -28,8 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Models\DB\" />
   </ItemGroup>
 
