@@ -63,6 +63,18 @@ builder.Services.AddHealthChecksUI().AddInMemoryStorage();
 // Register SignalR Service
 builder.Services.AddSignalR();
 
+#region ¤¹³\ CORS
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("SignalR", policy => policy.AllowAnyMethod()
+    .AllowAnyHeader()
+    .AllowCredentials()
+    .SetIsOriginAllowed(hostName => true));
+});
+
+#endregion
+
 #region HealthChecks
 
 builder.WebHost.ConfigureLogging(logging => {
@@ -120,6 +132,8 @@ app.UseHealthChecksUI(options => { options.UIPath = "/hc-ui"; });
 #endregion
 
 #region Use SignalR
+
+app.UseCors("SignalR");
 
 app.UseRouting();
 app.UseEndpoints(endpoints =>
